@@ -10,6 +10,7 @@
             <ul id="people"></ul>
         </div>
         <script>
+            /*
             var person = {
                 name: "Brad",
                 age: 35,
@@ -47,6 +48,25 @@
                 output += '<li>'+ people[i].name + ' is '+ people[i].age + ' years old '+'</li>';
             }
             document.getElementById('people').innerHTML = output;
+            */
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                // Typical action to be performed when the document is ready:
+                // document.getElementById("demo").innerHTML = xhttp.responseText;
+                var response = JSON.parse(xhttp.responseText);
+                var people = response.people;
+                var output = '';
+                for(var i=0; i < people.length; i++){
+                    // console.log(people[i].name);
+                    // output += '<li>'+ people[i].name+'</li>';
+                    output += '<li>'+ people[i].name + ' is '+ people[i].age + ' years old '+'</li>';
+                }
+                document.getElementById('people').innerHTML = output;
+                }
+            };
+            xhttp.open("GET", "people.jason", true);
+            xhttp.send();
         </script>
     </body>
 </html>
