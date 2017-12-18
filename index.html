@@ -1,0 +1,52 @@
+<!Doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>JSON Sandbox</title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <div>
+            <ul id="people"></ul>
+        </div>
+        <script>
+            var person = {
+                name: "Brad",
+                age: 35,
+                address: {
+                    street: "5 main street",
+                    city: "Boston"
+                },
+                children:["Brianna", "Nicholas"]
+            }
+            // // Convert to JSON
+            // person = JSON.stringify(person);
+
+            // //Convert to object
+            // person = JSON.parse(person)
+            var people = [
+                {
+                    name: "Brad",
+                    age: 51
+                },
+                {
+                    name: "Stacy",
+                    age: 23
+                },
+                {
+                    name: "Romeo",
+                    age: 37
+                }
+            ];
+            // output += '<li>'+ people[i].name + ' is '+ people[i].age + ' years old '+'</li>'
+            // console.log(people[1].name);
+            var output = '';
+            for(var i=0; i < people.length; i++){
+                // console.log(people[i].name);
+                // output += '<li>'+ people[i].name+'</li>';
+                output += '<li>'+ people[i].name + ' is '+ people[i].age + ' years old '+'</li>';
+            }
+            document.getElementById('people').innerHTML = output;
+        </script>
+    </body>
+</html>
